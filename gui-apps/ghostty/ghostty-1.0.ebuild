@@ -9,7 +9,7 @@ inherit edo desktop
 #REQUIRE="network-sandbox"
 DESCRIPTION="Fast, native, feature-rich terminal emulator pushing modern features."
 HOMEPAGE="https://github.com/ghostty-org/ghostty"
-SRC_URI="ghostty-source.tar.gz"
+SRC_URI="https://github.com/ghostty-org/ghostty/archive/refs/tags/v1.0.0.tar.gz"
 S="${WORKDIR}"
 LICENSE=""
 
