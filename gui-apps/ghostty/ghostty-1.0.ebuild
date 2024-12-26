@@ -98,11 +98,11 @@ src_configure() {
 }
 
 src_compile() {
-	ezig build "${ZBS_ARGS[@]}" --prefix "${W}/ghosty-1.0.0" || die
+	ezig build "${ZBS_ARGS[@]}" --prefix "${WORKDIR}/ghosty-1.0.0" || die
 }
 
 src_test() {
-	ezig build test "${ZBS_ARGS[@]}" --prefix "${w}/ghostty-1.0.0" || die
+	ezig build test "${ZBS_ARGS[@]}" --prefix "${WORKDIR}/ghostty-1.0.0" || die
 }
 
 src_install() {
