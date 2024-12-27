@@ -103,10 +103,12 @@ src_compile() {
 }
 
 src_test() {
+	cd ghostty-1.0.0
 	ezig build test "${ZBS_ARGS[@]}"  || die
 }
 
 src_install() {
+	cd ghostty-1.0.0
 	DESTDIR="${ED}" ezig build install "${ZBS_ARGS[@]}" || die
 
 	domenu dist/linux/app.desktop
