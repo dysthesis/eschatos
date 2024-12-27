@@ -88,6 +88,8 @@ ezig() {
 
 src_configure() {
 	export ZBS_ARGS=(
+		--prefix=usr/
+		--verbose
 		-Doptimize=ReleaseFast
 		-Dgtk-adwaita=$(usex gtk true false)
 		-Demit-docs=$(usex doc true false)
