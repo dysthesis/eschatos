@@ -98,6 +98,7 @@ src_configure() {
 }
 
 src_compile() {
+	cd ghostty-1.0.0
 	ezig build "${ZBS_ARGS[@]}" || die
 }
 
