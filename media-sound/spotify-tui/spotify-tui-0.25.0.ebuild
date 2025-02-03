@@ -282,8 +282,7 @@ RESTRICT="mirror"
 
 RDEPEND=">=dev-libs/openssl-1.1"
 
-BDEPEND=">=dev-libs/openssl-1.1
-		>=virtual/rust-1.78.0"
+BDEPEND=">=dev-libs/openssl-1.1"
 
 src_prepare() {
 	# patch Cargo.* for updated crates
