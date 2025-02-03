@@ -268,7 +268,8 @@ DESCRIPTION="A terminal user interface for Spotify"
 # Double check the homepage as the cargo_metadata crate
 # does not provide this value so instead repository is used
 HOMEPAGE="https://github.com/Rigellute/spotify-tui"
-SRC_URI="$(cargo_crate_uris)"
+SRC_URI="https://github.com/Rigellute/spotify-tui/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
+		$(cargo_crate_uris)"
 
 # License set may be more restrictive as OR is not respected
 # use cargo-license for a more accurate license picture
@@ -279,6 +280,25 @@ KEYWORDS="~amd64"
 DEPEND=""
 RDEPEND="${DEPEND}"
 BDEPEND=""
+
+src_prepare() {
+	# patch Cargo.* for updated crates
+	eapply "${FILESDIR}/01-cargo-update.patch"
+	# patch rspotify, Collection bug
+	pushd "${WORKDIR}"; eapply "${FILESDIR}/02-Add-Collection-SearchType.patch"; popd
+	default
+}
+
+src_install() {
+	cargo_src_install
+	#install documentation
+	dodoc "${S}/README.md"
+}
+
+pkg_postinst() {
+	elog "The spotify-tui executable is called spt."
+	elog "See the README at /usr/share/doc/${PF} for information about configurating and running spotify-tui."
+}
 
 # rust does not use *FLAGS from make.conf, silence portage warning
 # update with proper path to binaries this crate installs, omit leading /
