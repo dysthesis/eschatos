@@ -281,6 +281,14 @@ DEPEND=""
 RDEPEND="${DEPEND}"
 BDEPEND=""
 
+src_prepare() {
+	# patch Cargo.* for updated crates
+	eapply "${FILESDIR}/01-cargo-update.patch"
+	# patch rspotify, Collection bug
+	pushd "${WORKDIR}"; eapply "${FILESDIR}/02-Add-Collection-SearchType.patch"; popd
+	default
+}
+
 src_install() {
 	cargo_src_install
 	#install documentation
