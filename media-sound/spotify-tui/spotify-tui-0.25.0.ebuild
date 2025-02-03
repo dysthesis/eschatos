@@ -277,20 +277,9 @@ LICENSE="0BSD Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD BSD-2 Boost-1.0 ISC
 SLOT="0"
 KEYWORDS="~amd64"
 
-
-RESTRICT="mirror"
-
-RDEPEND=">=dev-libs/openssl-1.1"
-
-BDEPEND=">=dev-libs/openssl-1.1"
-
-src_prepare() {
-	# patch Cargo.* for updated crates
-	eapply "${FILESDIR}/01-cargo-update.patch"
-	# patch rspotify, Collection bug
-	pushd "${WORKDIR}"; eapply "${FILESDIR}/02-Add-Collection-SearchType.patch"; popd
-	default
-}
+DEPEND=""
+RDEPEND="${DEPEND}"
+BDEPEND=""
 
 src_install() {
 	cargo_src_install
