@@ -277,9 +277,13 @@ LICENSE="0BSD Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD BSD-2 Boost-1.0 ISC
 SLOT="0"
 KEYWORDS="~amd64"
 
-DEPEND=""
-RDEPEND="${DEPEND}"
-BDEPEND=""
+
+RESTRICT="mirror"
+
+RDEPEND=">=dev-libs/openssl-1.1"
+
+BDEPEND=">=dev-libs/openssl-1.1
+		>=virtual/rust-1.78.0"
 
 src_prepare() {
 	# patch Cargo.* for updated crates
