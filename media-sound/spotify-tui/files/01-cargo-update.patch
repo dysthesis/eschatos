@@ -2965,3 +2965,16 @@ index fa129f0..014a147 100644
 + "quote 1.0.38",
 + "syn 2.0.98",
 +]
+diff --git a/Cargo.toml b/Cargo.toml
+index 8349951..78ebea6 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -27,7 +27,7 @@ arboard = "1.2.0"
+ crossterm = "0.20"
+ tokio = { version = "0.2", features = ["full"] }
+ rand = "0.8.3"
+-anyhow = "1.0.43"
++anyhow = "1.0.95"
+ 
+ [[bin]]
+ bench = false
